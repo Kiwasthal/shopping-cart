@@ -69,7 +69,7 @@ const Home = ({ books, status }) => {
         <ImageContainer />
         <MainDisplay>
           <AnimatedTitle />
-          {homeBooks.map(book => (
+          {homeBooks.slice(0, 5).map(book => (
             <div>{book.bookAuthor}</div>
           ))}
         </MainDisplay>
