@@ -4,7 +4,7 @@ import BookCard from './ManageBookCards/BookCards';
 import backgroundImg from '../../Assets/homeBackground.jpg';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useBooks from '../Hooks/useBooks';
 
@@ -99,7 +99,7 @@ const Home = ({ books, status }) => {
           <CardDisplay>
             <CardDisplayHeader>SUGGESTIONS</CardDisplayHeader>
             <CardContainer>
-              {/*slicing and a random point to display some books for the homepage */}
+              {/*slicing and a random point to display five books for the homepage */}
               {homeBooks.slice(11, 16).map(book => (
                 <BookCard
                   image={book.booksUrl}
