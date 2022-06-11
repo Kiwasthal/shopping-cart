@@ -1,4 +1,5 @@
 import AnimatedTitle from './AnimatedTitle/AnimatedTitle';
+import LoadingAnimation from './LoadinAnimation/LoadingAnimation';
 import BookCard from './ManageBookCards/BookCards';
 import backgroundImg from '../../Assets/homeBackground.jpg';
 import { keyframes } from 'styled-components';
@@ -75,7 +76,7 @@ const CardContainer = styled.div`
 
 const Home = ({ books, status }) => {
   const [homeBooks, setHomeBooks] = useState(books);
-  let content = <h1>Loading...</h1>;
+  let content = <LoadingAnimation />;
 
   useEffect(
     () =>
