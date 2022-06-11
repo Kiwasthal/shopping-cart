@@ -2,7 +2,7 @@ import AnimatedTitle from './AnimatedTitle';
 import backgroundImg from '../../Assets/homeBackground.jpg';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const fade = keyframes`
   0% { opacity: 0 }
@@ -34,17 +34,51 @@ const MainDisplay = styled.div`
   border: 3px solid black;
   grid-area: 1 / 2 / 2 / 3;
   z-index: 1000;
+  position: relative;
 `;
 
-const Home = () => {
-  return (
-    <HomeContainer>
-      <AnimatedTitle />
-      <ImageContainer />
-      <MainDisplay />
-      <ImageContainer />
-    </HomeContainer>
+const Home = ({ books, status }) => {
+  const [homeBooks, setHomeBooks] = useState(books);
+  let content = <h1>Loading...</h1>;
+
+  useEffect(
+    () =>
+      setHomeBooks(
+        books
+          ? books.results.map(book => {
+              let author;
+              if (book.authors[0]) author = book.authors[0].name;
+              else author = 'Uknown';
+
+              return {
+                bookTitle: book.title,
+                bookAuthor: author,
+                booksUrl: book.formats['image/jpeg'],
+                bookShelves: book.bookshelves[0],
+              };
+            })
+          : []
+      ),
+    [books]
   );
+  console.log(homeBooks);
+
+  if (!status && homeBooks && homeBooks.length > 0) {
+    content = (
+      <HomeContainer>
+        <ImageContainer />
+        <MainDisplay>
+          <AnimatedTitle />
+          {homeBooks.map(book => (
+            <div>{book.bookAuthor}</div>
+          ))}
+        </MainDisplay>
+        <ImageContainer />
+      </HomeContainer>
+    );
+  }
+
+  return content;
 };
 
 export default Home;

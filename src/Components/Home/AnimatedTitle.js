@@ -18,7 +18,7 @@ const AnimatedContainer = styled.div`
   height: 90vmin;
   left: 50%;
   position: absolute;
-  top: 50%;
+  top: 22%;
   transform: translate(-50%, -50%);
   width: 90vmin;
 `;
@@ -27,13 +27,13 @@ const TextTop = styled.div`
   height: 50%;
   overflow: hidden;
   position: absolute;
-  width: 100%;
+  width: 65%;
   border-bottom: 1vmin solid #000;
   top: 0;
 `;
 
 const Wrapper = styled.div`
-  font-size: 12vmin;
+  font-size: 8vmin;
   padding: 2vmin 0;
   position: absolute;
   animation: ${showTopText} 1s;
@@ -61,7 +61,7 @@ const TextBottom = styled.div`
 `;
 
 const BottomTextDiv = styled.div`
-  font-size: 12vmin;
+  font-size: 8vmin;
   padding: 2vmin 0;
   position: absolute;
   animation: ${showBottomText} 0.5s;
