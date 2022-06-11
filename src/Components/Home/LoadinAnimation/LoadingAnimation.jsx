@@ -2,7 +2,9 @@ import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 
 const Move = keyframes`
-  from { background-position-x: 0 ; }
+  from {
+    background-position-x: 0;
+  }
   
   to {
     background-position-x: 10px;
@@ -194,7 +196,7 @@ const SixthBook = styled(Book)`
     bottom: 31px;
     left: 0px;
     width: 100%;
-    height: $thickness;
+    height: 5px;
     background-color: white;
   }
 
@@ -207,15 +209,15 @@ const SixthBook = styled(Book)`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    border: $thickness solid white;
+    border: 5px solid white;
   }
 `;
 
 const Shelf = styled.div`
   width: 300px;
-  height: 5px;
+  height: 10px;
   margin: 0 auto;
-  background-color: white;
+  background-color: #1e6cc7;
   position: relative;
 
   &:before,
@@ -223,10 +225,10 @@ const Shelf = styled.div`
     content: '';
     position: absolute;
     width: 100%;
-    height: 100%;
+    height: 30px;
     background-position: 0 -2.5px;
-    background-size: 10px 10px;
-    background: #1e6cc7;
+    background-size: 3px 3px;
+    background: white;
     background-image: radial-gradient(
       rgba(255, 255, 255, 0.5) 30%,
       transparent 0
