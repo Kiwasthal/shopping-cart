@@ -5,6 +5,8 @@ import backgroundImg from '../../Assets/homeBackground.jpg';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import useBooks from '../Hooks/useBooks';
 
 const fade = keyframes`
   0% { opacity: 0 }
@@ -82,27 +84,7 @@ const StyledLinkContainer = styled.div`
 const Home = ({ books, status }) => {
   const [homeBooks, setHomeBooks] = useState(books);
   let content = <LoadingAnimation />;
-
-  useEffect(
-    () =>
-      setHomeBooks(
-        books
-          ? books.results.map(book => {
-              let author;
-              if (book.authors[0]) author = book.authors[0].name;
-              else author = 'Uknown';
-
-              return {
-                bookTitle: book.title,
-                bookAuthor: author,
-                booksUrl: book.formats['image/jpeg'],
-                bookShelves: book.bookshelves[0],
-              };
-            })
-          : []
-      ),
-    [books]
-  );
+  useBooks(setHomeBooks, books);
 
   if (!status && homeBooks && homeBooks.length > 0) {
     content = (
@@ -110,12 +92,14 @@ const Home = ({ books, status }) => {
         <ImageContainer />
         <MainDisplay>
           <AnimatedTitle />
-          <StyledLinkContainer></StyledLinkContainer>
+          <StyledLinkContainer>
+            <Link to={'/shop'}>Shop</Link>
+          </StyledLinkContainer>
           <InformationModal />
           <CardDisplay>
             <CardDisplayHeader>SUGGESTIONS</CardDisplayHeader>
-
             <CardContainer>
+              {/*slicing and a random point to display some books for the homepage */}
               {homeBooks.slice(11, 16).map(book => (
                 <BookCard
                   image={book.booksUrl}
