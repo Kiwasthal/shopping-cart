@@ -74,6 +74,11 @@ const CardContainer = styled.div`
   grid-template-columns: repeat(5, 20%);
 `;
 
+const StyledLinkContainer = styled.div`
+  justify-self: flex-end;
+  padding: 30px;
+`;
+
 const Home = ({ books, status }) => {
   const [homeBooks, setHomeBooks] = useState(books);
   let content = <LoadingAnimation />;
@@ -98,7 +103,6 @@ const Home = ({ books, status }) => {
       ),
     [books]
   );
-  console.log(homeBooks);
 
   if (!status && homeBooks && homeBooks.length > 0) {
     content = (
@@ -106,9 +110,10 @@ const Home = ({ books, status }) => {
         <ImageContainer />
         <MainDisplay>
           <AnimatedTitle />
+          <StyledLinkContainer></StyledLinkContainer>
           <InformationModal />
           <CardDisplay>
-            <CardDisplayHeader>TOP BOOKS</CardDisplayHeader>
+            <CardDisplayHeader>SUGGESTIONS</CardDisplayHeader>
 
             <CardContainer>
               {homeBooks.slice(11, 16).map(book => (
