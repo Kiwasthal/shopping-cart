@@ -1,11 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import HomeView from '../HomeView';
+import AnimatedTitle from '../AnimatedTitle';
 
 describe('Homeview', () => {
   it('renders three animated elements', () => {
-    render(<HomeView />);
+    render(<AnimatedTitle />);
     const upperSpan = screen.getByText(/Welcome/i);
     const subSpan = screen.getByText(/To the fantasy/i);
     const bottomText = screen.getByText(/Bookstore/i);

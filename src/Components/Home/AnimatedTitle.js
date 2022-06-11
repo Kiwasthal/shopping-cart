@@ -12,7 +12,7 @@ const showBottomText = keyframes`
   100% { transform: translate3d(0, 0, 0); }
 `;
 
-const AnimatedTitle = styled.div`
+const AnimatedContainer = styled.div`
   color: #222;
   font-family: Roboto, Arial, sans-serif;
   height: 90vmin;
@@ -71,9 +71,9 @@ const BottomTextDiv = styled.div`
   transform: translate(0, -100%);
 `;
 
-const HomeView = () => {
+const AnimatedTitle = () => {
   return (
-    <AnimatedTitle>
+    <AnimatedContainer>
       <TextTop>
         <Wrapper>
           <AnimatedSpanFirst>Welcome</AnimatedSpanFirst>
@@ -83,8 +83,8 @@ const HomeView = () => {
       <TextBottom>
         <BottomTextDiv>Bookstore</BottomTextDiv>
       </TextBottom>
-    </AnimatedTitle>
+    </AnimatedContainer>
   );
 };
 
-export default HomeView;
+export default AnimatedTitle;
