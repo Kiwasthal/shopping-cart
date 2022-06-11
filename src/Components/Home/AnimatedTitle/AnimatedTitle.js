@@ -16,7 +16,7 @@ const AnimatedContainer = styled.div`
   color: #222;
   font-family: Roboto, Arial, sans-serif;
   height: 90vmin;
-  left: 50%;
+  left: 30%;
   position: absolute;
   top: 22%;
   transform: translate(-50%, -50%);

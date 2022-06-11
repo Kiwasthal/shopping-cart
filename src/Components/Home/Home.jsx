@@ -1,4 +1,5 @@
-import AnimatedTitle from './AnimatedTitle';
+import AnimatedTitle from './AnimatedTitle/AnimatedTitle';
+import BookCard from './ManageBookCards/BookCards';
 import backgroundImg from '../../Assets/homeBackground.jpg';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
@@ -35,6 +36,41 @@ const MainDisplay = styled.div`
   grid-area: 1 / 2 / 2 / 3;
   z-index: 1000;
   position: relative;
+  display: grid;
+  grid-template-rows: 40% 1fr 2fr;
+  padding: 30px;
+  gap: 20px;
+`;
+
+const InformationModal = styled.div`
+  grid-area: 2/ 1 / 3 /2;
+  height: 50%;
+  align-self: flex-end;
+  margin-bottom: 40px;
+  background-color: red;
+`;
+
+const CardDisplay = styled.div`
+  width: 80%;
+  background-color: #d4d4d4;
+  justify-self: center;
+  display: grid;
+  grid-template-rows: 10% 1fr;
+  grid-area: 3/ 1 / 4 /2;
+  border-radius: 20px;
+  padding: 15px;
+`;
+
+const CardDisplayHeader = styled.h3`
+  padding: 0;
+  margin: 0;
+  justify-self: center;
+`;
+
+const CardContainer = styled.div`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(5, 20%);
 `;
 
 const Home = ({ books, status }) => {
@@ -69,9 +105,20 @@ const Home = ({ books, status }) => {
         <ImageContainer />
         <MainDisplay>
           <AnimatedTitle />
-          {homeBooks.slice(0, 5).map(book => (
-            <div>{book.bookAuthor}</div>
-          ))}
+          <InformationModal />
+          <CardDisplay>
+            <CardDisplayHeader>TOP BOOKS</CardDisplayHeader>
+
+            <CardContainer>
+              {homeBooks.slice(11, 16).map(book => (
+                <BookCard
+                  image={book.booksUrl}
+                  title={book.bookTitle}
+                  author={book.bookAuthor}
+                />
+              ))}
+            </CardContainer>
+          </CardDisplay>
         </MainDisplay>
         <ImageContainer />
       </HomeContainer>
