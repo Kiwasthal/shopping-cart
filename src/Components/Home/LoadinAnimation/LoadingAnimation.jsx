@@ -246,16 +246,16 @@ const Shelf = styled.div`
 
 const LoadingAnimation = () => {
   return (
-    <BookShelfWrapper>
-      <BookList>
-        <FirstBook />
-        <SecondBook />
-        <ThirdBook />
-        <FourthBook />
-        <FifthBook />
-        <SixthBook />
+    <BookShelfWrapper data-testid="book-wrapper">
+      <BookList data-testid="book-list">
+        <FirstBook data-testid="book" />
+        <SecondBook data-testid="book" />
+        <ThirdBook data-testid="book" />
+        <FourthBook data-testid="book" />
+        <FifthBook data-testid="book" />
+        <SixthBook data-testid="book" />
       </BookList>
-      <Shelf />
+      <Shelf data-testid="book-shelf" />
     </BookShelfWrapper>
   );
 };
