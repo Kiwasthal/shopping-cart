@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 const StyledCardContainer = styled.div`
   margin-top: 20px;
-  margin-left: 22px;
-  display: flex;
-  flex-direction: column;
+  gap: 20px;
 `;
 
 const StyledCardImage = styled.div`
@@ -17,18 +15,34 @@ const StyledCardImage = styled.div`
   background-position: center;
   justify-self: center;
 `;
-const StyledTitle = styled.p`
+
+const StyledLink = styled(Link)`
+  font-size: 16px;
+  font-weight: 600;
+  color: black;
+  text-decoration: none;
   padding: 0;
   margin: 0;
+  text-align: center;
+
+  :hover {
+    text-decoration: underline;
+  }
+
+  :visited {
+    color: black;
+    text-decoration: none;
+  }
 `;
 
 const ShopCard = ({ title, image, bookId, items }) => {
   return (
     <StyledCardContainer>
-      <StyledCardImage image={image} />
       <Link to={`/shop/${bookId}`}>
-        <StyledTitle>{title}</StyledTitle>
+        <StyledCardImage image={image} />{' '}
       </Link>
+
+      <StyledLink to={`/shop/${bookId}`}>{title}</StyledLink>
     </StyledCardContainer>
   );
 };

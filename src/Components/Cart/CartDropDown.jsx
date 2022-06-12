@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import ClearFix from './Clearfix';
 
 const CartContainer = styled.div`
-  top: -45px;
-  left: -30px;
+  top: 55px;
+  left: -10px;
+  grid-area: 1 / 3 / 2 / 4;
   margin: auto;
   width: 80%;
   position: relative;
@@ -21,6 +22,9 @@ const ShoppingCart = styled.div`
   position: relative;
   border-radius: 3px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
   ::after {
     bottom: 100%;
     left: 89%;
@@ -66,9 +70,14 @@ const CheckoutButton = styled.button`
   border-radius: 3px;
   font-size: 16px;
   margin: 25px 0 15px 0;
+`;
 
-  &:hover {
-    background: lighten(#6394f8, 3%);
+const ButtonLink = styled(Link)`
+  text-decoration: none;
+  margin-left: 30px;
+  align-self: center;
+  :visited {
+    text-decoration: none;
   }
 `;
 
@@ -99,9 +108,9 @@ const CartDropDown = ({ total, items, cartOpacity, close }) => {
               ))
             : null}
         </ShoppingCartItems>
-        <Link to="/cart">
+        <ButtonLink to="/cart">
           <CheckoutButton onClick={close}>Checkout</CheckoutButton>
-        </Link>
+        </ButtonLink>
       </ShoppingCart>
     </CartContainer>
   );

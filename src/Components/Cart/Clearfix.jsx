@@ -37,8 +37,8 @@ const ClearFix = ({ image, name, quantity, price }) => {
     <ClearFixItem>
       <ItemImage src={image} alt={`image for ${name}`} />
       <ItemName>{name}</ItemName>
-      <ItemPrice>{price}</ItemPrice>
-      <ItemQuantity>{quantity}</ItemQuantity>
+      <ItemPrice>Price :{price}</ItemPrice>
+      <ItemQuantity>Quantity: {quantity}</ItemQuantity>
     </ClearFixItem>
   );
 };

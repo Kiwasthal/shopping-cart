@@ -16,12 +16,10 @@ const BooksContainer = styled.div`
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, 20rem);
   grid-area: 2 / 1 / 3 / 2;
-  grid-auto-flow: dense;
+  justify-content: center;
   position: relative;
   overflow: hidden;
-  overflow-x: hidden;
   & > * {
-    align-items: flex-start;
     background: #eee;
     display: flex;
     flex-direction: column;
