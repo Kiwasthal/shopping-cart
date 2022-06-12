@@ -26,8 +26,16 @@ function App() {
         if (content.name === item.name) content.quantity++;
         return content;
       });
+
     setShoppingCart(newCart);
   };
+
+  const findTotalValue = () =>
+    shoppingCart.reduce(
+      (prevValue, nextValue) =>
+        prevValue + nextValue.price * nextValue.quantity,
+      0
+    );
 
   return (
     <BrowserRouter>
@@ -46,6 +54,7 @@ function App() {
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
                 items={shoppingCart}
+                total={findTotalValue}
               />
             }
           />
@@ -59,6 +68,7 @@ function App() {
                 cartOpacity={cartOpacity}
                 addItem={addCartItem}
                 items={shoppingCart}
+                total={findTotalValue}
               />
             }
           />
@@ -71,6 +81,7 @@ function App() {
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
                 items={shoppingCart}
+                total={findTotalValue}
               />
             }
           />

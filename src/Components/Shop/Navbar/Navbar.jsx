@@ -14,14 +14,19 @@ const StyledNavBar = styled.nav`
   background-color: #b63e47;
 `;
 
-const NavBar = ({ count, clickCart, cartOpacity, items }) => {
+const NavBar = ({ count, clickCart, cartOpacity, items, total }) => {
   return (
     <StyledNavBar>
       <Link to="/">Home</Link>
       <p onClick={clickCart}>Cart</p>
       {<div>{count}</div>}
       <Link to="/shop">Shop</Link>
-      <CartDropDown cartOpacity={cartOpacity} close={clickCart} items={items} />
+      <CartDropDown
+        cartOpacity={cartOpacity}
+        close={clickCart}
+        items={items}
+        total={total}
+      />
     </StyledNavBar>
   );
 };

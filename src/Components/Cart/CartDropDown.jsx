@@ -73,13 +73,14 @@ const CheckoutButton = styled.button`
 `;
 
 const CartDropDown = ({ total, items, cartOpacity, close }) => {
+  let totalPrice = total();
   return (
     <CartContainer opacity={cartOpacity}>
       <ShoppingCart>
         <ShoppingCartHeader>
           <div>ShoppingIcon 3</div>
           <ShoppingCartTotal>
-            <LighterText>Total : </LighterText>
+            <LighterText>Total : {totalPrice || 0}</LighterText>
             <MainColorText>{total}</MainColorText>
           </ShoppingCartTotal>
         </ShoppingCartHeader>
