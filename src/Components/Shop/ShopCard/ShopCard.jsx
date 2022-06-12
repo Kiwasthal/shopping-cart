@@ -23,7 +23,6 @@ const StyledTitle = styled.p`
 `;
 
 const ShopCard = ({ title, image, bookId }) => {
-  console.log(bookId);
   return (
     <StyledCardContainer>
       <StyledCardImage image={image} />

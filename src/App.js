@@ -1,10 +1,12 @@
 import './App.css';
 import UseBookData from './Components/Hooks/useFetchData';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Shop from './Components/Shop/Shop';
 import DetailedItem from './Components/Shop/DetailedItemScreen/DetailedItem';
 import { useState } from 'react';
+
+import NavBar from './Components/Shop/Navbar/Navbar';
 
 function App() {
   const [isLoading, fetchedBooks] = UseBookData([]);
@@ -28,11 +30,16 @@ function App() {
           path="/"
           element={<Home status={isLoading} books={fetchedBooks} />}
         />
-        <Route
-          path="/shop"
-          element={<Shop status={isLoading} books={fetchedBooks} />}
-        />
-        <Route path="/shop/:id" element={<DetailedItem />} />
+        <Route component={<NavBar />} pattern="/">
+          <Route
+            path="/shop"
+            element={<Shop status={isLoading} books={fetchedBooks} />}
+          />
+          <Route
+            path="/shop/:id"
+            element={<DetailedItem books={fetchedBooks} />}
+          />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
