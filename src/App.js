@@ -3,6 +3,7 @@ import UseBookData from './Components/Hooks/useFetchData';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Shop from './Components/Shop/Shop';
+import DetailedItem from './Components/Shop/DetailedItemScreen/DetailedItem';
 import { useState } from 'react';
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
     if (checkExist.length === 0) addedCart = [...shoppingCart, item];
     else
       addedCart = shoppingCart.map(content => {
-        if (content.name === item.name ) content.quantity++;
+        if (content.name === item.name) content.quantity++;
         return content;
       });
     setShoppingCart(addedCart);
@@ -31,6 +32,7 @@ function App() {
           path="/shop"
           element={<Shop status={isLoading} books={fetchedBooks} />}
         />
+        <Route path="/shop/:id" element={<DetailedItem />} />
       </Routes>
     </BrowserRouter>
   );

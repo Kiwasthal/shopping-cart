@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledCardContainer = styled.div`
   margin-top: 20px;
@@ -21,11 +22,13 @@ const StyledTitle = styled.p`
   margin: 0;
 `;
 
-const ShopCard = ({ title, image }) => {
+const ShopCard = ({ title, image, id }) => {
   return (
     <StyledCardContainer>
       <StyledCardImage image={image} />
-      <StyledTitle>{title}</StyledTitle>
+      <Link to={`/shop/${id}`}>
+        <StyledTitle>{title}</StyledTitle>
+      </Link>
     </StyledCardContainer>
   );
 };
