@@ -16,18 +16,19 @@ function App() {
 
   const showCart = () => setCartShowing(!cartShowing);
   const cartOpacity = cartShowing ? 1 : 0;
-  console.log(cartOpacity);
 
-  const AddItem = item => {
-    let addedCart;
+  console.log(shoppingCart);
+
+  const addCartItem = item => {
+    let newCart;
     let checkExist = shoppingCart.filter(content => content.name === item.name);
-    if (checkExist.length === 0) addedCart = [...shoppingCart, item];
+    if (checkExist.length === 0) newCart = [...shoppingCart, item];
     else
-      addedCart = shoppingCart.map(content => {
+      newCart = shoppingCart.map(content => {
         if (content.name === item.name) content.quantity++;
         return content;
       });
-    setShoppingCart(addedCart);
+    setShoppingCart(newCart);
   };
 
   return (
@@ -57,6 +58,7 @@ function App() {
                 books={fetchedBooks}
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
+                addItem={addCartItem}
               />
             }
           />
