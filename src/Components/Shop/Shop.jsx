@@ -59,7 +59,7 @@ const Shop = ({ books, status }) => {
               key={book.id}
               image={book.booksUrl}
               title={book.bookTitle}
-              author={book.bookAuthor}
+              bookId={book.id}
             />
           ))}
         </BooksContainer>

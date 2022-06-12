@@ -22,11 +22,12 @@ const StyledTitle = styled.p`
   margin: 0;
 `;
 
-const ShopCard = ({ title, image, id }) => {
+const ShopCard = ({ title, image, bookId }) => {
+  console.log(bookId);
   return (
     <StyledCardContainer>
       <StyledCardImage image={image} />
-      <Link to={`/shop/${id}`}>
+      <Link to={`/shop/${bookId}`}>
         <StyledTitle>{title}</StyledTitle>
       </Link>
     </StyledCardContainer>
