@@ -21,11 +21,11 @@ const StyledTitle = styled.p`
   margin: 0;
 `;
 
-const ShopCard = ({ title, author, image }) => {
+const ShopCard = ({ title, image }) => {
   return (
     <StyledCardContainer>
       <StyledCardImage image={image} />
-      <StyledTitle>{author}</StyledTitle>
+      <StyledTitle>{title}</StyledTitle>
     </StyledCardContainer>
   );
 };

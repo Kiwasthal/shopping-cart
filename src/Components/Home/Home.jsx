@@ -160,7 +160,11 @@ const Home = ({ books, status }) => {
             <CardContainer>
               {/*slicing and a random point to display five books for the homepage */}
               {homeBooks.slice(11, 16).map(book => (
-                <BookCard image={book.booksUrl} title={book.bookTitle} />
+                <BookCard
+                  image={book.booksUrl}
+                  title={book.bookTitle}
+                  key={book.id}
+                />
               ))}
             </CardContainer>
           </CardDisplay>

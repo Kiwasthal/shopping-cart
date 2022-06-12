@@ -11,6 +11,7 @@ const useBooks = (handler, value) => {
               else author = 'Uknown';
 
               return {
+                id: book.id,
                 bookTitle: book.title,
                 bookAuthor: author,
                 booksUrl: book.formats['image/jpeg'],

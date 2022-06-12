@@ -10,11 +10,11 @@ function App() {
   const [shoppingCart, setShoppingCart] = useState([]);
   const AddItem = item => {
     let addedCart;
-    let checkExist = shoppingCart.filter(content => content.name === item);
+    let checkExist = shoppingCart.filter(content => content.name === item.name);
     if (checkExist.length === 0) addedCart = [...shoppingCart, item];
     else
       addedCart = shoppingCart.map(content => {
-        if (content.name === item) content.quantity++;
+        if (content.name === item.name ) content.quantity++;
         return content;
       });
     setShoppingCart(addedCart);
