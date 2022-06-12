@@ -17,8 +17,6 @@ function App() {
   const showCart = () => setCartShowing(!cartShowing);
   const cartOpacity = cartShowing ? 1 : 0;
 
-  console.log(shoppingCart);
-
   const addCartItem = item => {
     let newCart;
     let checkExist = shoppingCart.filter(content => content.name === item.name);
@@ -47,6 +45,7 @@ function App() {
                 books={fetchedBooks}
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
+                items={shoppingCart}
               />
             }
           />
@@ -59,6 +58,7 @@ function App() {
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
                 addItem={addCartItem}
+                items={shoppingCart}
               />
             }
           />
@@ -70,6 +70,7 @@ function App() {
                 books={fetchedBooks}
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
+                items={shoppingCart}
               />
             }
           />

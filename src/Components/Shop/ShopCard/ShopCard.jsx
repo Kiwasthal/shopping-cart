@@ -22,7 +22,7 @@ const StyledTitle = styled.p`
   margin: 0;
 `;
 
-const ShopCard = ({ title, image, bookId }) => {
+const ShopCard = ({ title, image, bookId, items }) => {
   return (
     <StyledCardContainer>
       <StyledCardImage image={image} />

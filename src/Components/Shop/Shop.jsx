@@ -29,14 +29,14 @@ const BooksContainer = styled.div`
   }
 `;
 
-const Shop = ({ books, status, clickCart, cartOpacity }) => {
+const Shop = ({ books, status, clickCart, cartOpacity, items }) => {
   const [ShopBooks, setShopBooks] = useState(books);
   let content = <LoadingAnimation />;
   useBooks(setShopBooks, books);
   if (!status && ShopBooks && ShopBooks.length > 0) {
     content = (
       <StyledContainer>
-        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} />
+        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} items={items} />
         <BooksContainer>
           {ShopBooks.map(book => (
             <ShopCard
@@ -44,6 +44,7 @@ const Shop = ({ books, status, clickCart, cartOpacity }) => {
               image={book.bookUrl}
               title={book.bookTitle}
               bookId={book.id}
+              items={items}
             />
           ))}
         </BooksContainer>

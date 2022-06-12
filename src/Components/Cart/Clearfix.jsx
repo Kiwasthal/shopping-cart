@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const ClearFixItem = styled.li`
+  list-style: none;
   margin-bottom: 18px;
   ::after {
     content: '';
@@ -9,7 +10,9 @@ const ClearFixItem = styled.li`
   }
 `;
 
-const ItemImage = styled.image`
+const ItemImage = styled.img`
+  height: 10%;
+  width: 10%;
   float: left;
   margin-right: 12px;
 `;

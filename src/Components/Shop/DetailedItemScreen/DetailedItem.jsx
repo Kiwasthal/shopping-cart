@@ -41,7 +41,14 @@ const ImageContainer = styled.img`
 
 const BookDetails = styled.div``;
 
-const DetailedItem = ({ books, status, clickCart, cartOpacity, addItem }) => {
+const DetailedItem = ({
+  books,
+  status,
+  clickCart,
+  items,
+  cartOpacity,
+  addItem,
+}) => {
   const [allBooks, setAllBooks] = useState(books);
   let content = <LoadingAnimation />;
   useBooks(setAllBooks, books);
@@ -56,15 +63,16 @@ const DetailedItem = ({ books, status, clickCart, cartOpacity, addItem }) => {
     const clickHandler = () => {
       addItem({
         name: detailedBook.bookTitle,
-        price: detailedBook.price,
-        image: detailedBook.image,
+        price: detailedBook.bookPrice,
+        image: detailedBook.bookUrl,
         quantity: 1,
+        id: detailedBook.id,
       });
       cartHandler();
     };
     content = (
       <StyledContainer>
-        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} />
+        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} items={items} />
         <StyledBookDisplay>
           <BackGroundImage />
           <InformationContainer>

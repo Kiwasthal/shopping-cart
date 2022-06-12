@@ -86,14 +86,17 @@ const CartDropDown = ({ total, items, cartOpacity, close }) => {
         {/* <-- end of shopping card Header */}
         <ShoppingCartItems>
           {/* <-- create a 'card' for each Item added */}
-          {/* {items.map(item => (
-            <ClearFix
-              image={item.image}
-              name={item.name}
-              quantity={item.quantity}
-              price={item.price}
-            />
-          ))} */}
+          {items.length > 0
+            ? items.map(item => (
+                <ClearFix
+                  key={item.id}
+                  image={item.image}
+                  name={item.name}
+                  quantity={item.quantity}
+                  price={item.price}
+                />
+              ))
+            : null}
         </ShoppingCartItems>
         <Link to="/cart">
           <CheckoutButton onClick={close}>Checkout</CheckoutButton>
