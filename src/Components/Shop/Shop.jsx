@@ -38,10 +38,10 @@ const Shop = ({ books, status }) => {
       <StyledContainer>
         <NavBar />
         <BooksContainer>
-          {ShopBooks.map(book => (
+          {ShopBooks.map((book, index) => (
             <ShopCard
               key={book.id}
-              image={book.booksUrl}
+              image={book.bookUrl}
               title={book.bookTitle}
               bookId={book.id}
             />

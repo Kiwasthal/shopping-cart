@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
+import { bookPrices } from '../Prices/Prices';
 
 const useBooks = (handler, value) => {
   useEffect(
     () =>
       handler(
         value
-          ? value.results.map(book => {
+          ? value.results.map((book, index) => {
               let author;
               if (book.authors[0]) author = book.authors[0].name;
               else author = 'Uknown';
@@ -14,8 +15,9 @@ const useBooks = (handler, value) => {
                 id: book.id,
                 bookTitle: book.title,
                 bookAuthor: author,
-                booksUrl: book.formats['image/jpeg'],
+                bookUrl: book.formats['image/jpeg'],
                 bookShelves: book.bookshelves[0],
+                bookPrice: bookPrices[index],
               };
             })
           : []

@@ -1,8 +1,9 @@
 import './App.css';
 import UseBookData from './Components/Hooks/useFetchData';
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Shop from './Components/Shop/Shop';
+import Cart from './Components/Cart/Cart';
 import DetailedItem from './Components/Shop/DetailedItemScreen/DetailedItem';
 import { useState } from 'react';
 
@@ -37,8 +38,9 @@ function App() {
           />
           <Route
             path="/shop/:id"
-            element={<DetailedItem books={fetchedBooks} />}
+            element={<DetailedItem status={isLoading} books={fetchedBooks} />}
           />
+          <Route path="/cart" element={<Cart />} />
         </Route>
       </Routes>
     </BrowserRouter>
