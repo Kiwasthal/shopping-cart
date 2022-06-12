@@ -20,8 +20,8 @@ const NavBar = ({ count, clickCart, cartOpacity }) => {
       <Link to="/">Home</Link>
       <p onClick={clickCart}>Cart</p>
       {<div>{count}</div>}
-      <Link to="/cart">Cart</Link>
-      <CartDropDown cartOpacity={cartOpacity} />
+      <Link to="/shop">Shop</Link>
+      <CartDropDown cartOpacity={cartOpacity} close={clickCart} />
     </StyledNavBar>
   );
 };

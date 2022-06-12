@@ -41,7 +41,7 @@ const ImageContainer = styled.img`
 
 const BookDetails = styled.div``;
 
-const DetailedItem = ({ books, status }) => {
+const DetailedItem = ({ books, status, clickCart, cartOpacity }) => {
   const [allBooks, setAllBooks] = useState(books);
   let content = <LoadingAnimation />;
   useBooks(setAllBooks, books);
@@ -51,8 +51,7 @@ const DetailedItem = ({ books, status }) => {
     const detailedBook = getBookDetails(parseInt(params.id, 10), allBooks);
     content = (
       <StyledContainer>
-        <NavBar />
-
+        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} />
         <StyledBookDisplay>
           <BackGroundImage />
           <InformationContainer>

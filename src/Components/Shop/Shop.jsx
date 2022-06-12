@@ -38,7 +38,7 @@ const Shop = ({ books, status, clickCart, cartOpacity }) => {
       <StyledContainer>
         <NavBar clickCart={clickCart} cartOpacity={cartOpacity} />
         <BooksContainer>
-          {ShopBooks.map((book, index) => (
+          {ShopBooks.map(book => (
             <ShopCard
               key={book.id}
               image={book.bookUrl}

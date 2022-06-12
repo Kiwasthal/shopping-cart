@@ -51,9 +51,26 @@ function App() {
           />
           <Route
             path="/shop/:id"
-            element={<DetailedItem status={isLoading} books={fetchedBooks} />}
+            element={
+              <DetailedItem
+                status={isLoading}
+                books={fetchedBooks}
+                clickCart={showCart}
+                cartOpacity={cartOpacity}
+              />
+            }
           />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                status={isLoading}
+                books={fetchedBooks}
+                clickCart={showCart}
+                cartOpacity={cartOpacity}
+              />
+            }
+          />
         </Route>
       </Routes>
     </BrowserRouter>

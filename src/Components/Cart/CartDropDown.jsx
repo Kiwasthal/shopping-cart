@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ClearFix from './Clearfix';
 
@@ -71,7 +72,7 @@ const CheckoutButton = styled.button`
   }
 `;
 
-const CartDropDown = ({ total, items, cartOpacity }) => {
+const CartDropDown = ({ total, items, cartOpacity, close }) => {
   return (
     <CartContainer opacity={cartOpacity}>
       <ShoppingCart>
@@ -94,7 +95,9 @@ const CartDropDown = ({ total, items, cartOpacity }) => {
             />
           ))} */}
         </ShoppingCartItems>
-        <CheckoutButton>Checkout</CheckoutButton>
+        <Link to="/cart">
+          <CheckoutButton onClick={close}>Checkout</CheckoutButton>
+        </Link>
       </ShoppingCart>
     </CartContainer>
   );
