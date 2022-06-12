@@ -1,12 +1,14 @@
 import styled from 'styled-components';
 
 const StyledCardContainer = styled.div`
-  display: grid;
-  grid-template-rows: 60% 10% 30%;
+  margin-top: 20px;
+  margin-left: 22px;
+  display: flex;
+  flex-direction: column;
 `;
 
 const StyledCardImage = styled.div`
-  height: 200px;
+  height: 20vh;
   width: 100%;
   background-image: url(${props => props.image});
   background-size: contain;
@@ -14,11 +16,16 @@ const StyledCardImage = styled.div`
   background-position: center;
   justify-self: center;
 `;
+const StyledTitle = styled.p`
+  padding: 0;
+  margin: 0;
+`;
 
 const ShopCard = ({ title, author, image }) => {
   return (
     <StyledCardContainer>
       <StyledCardImage image={image} />
+      <StyledTitle>{author}</StyledTitle>
     </StyledCardContainer>
   );
 };
