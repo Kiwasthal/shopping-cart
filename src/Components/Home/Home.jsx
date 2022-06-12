@@ -2,6 +2,7 @@ import AnimatedTitle from './AnimatedTitle/AnimatedTitle';
 import LoadingAnimation from './LoadinAnimation/LoadingAnimation';
 import BookCard from './ManageBookCards/BookCards';
 import backgroundImg from '../../Assets/homeBackground.jpg';
+import linkImage from '../../Assets/book.png';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 import { useState } from 'react';
@@ -12,6 +13,15 @@ const fade = keyframes`
   0% { opacity: 0 }
   100% { opacity: 1 }
 
+`;
+
+const Rotate = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
 `;
 
 const HomeContainer = styled.div`
@@ -78,7 +88,55 @@ const CardContainer = styled.div`
 
 const StyledLinkContainer = styled.div`
   justify-self: flex-end;
-  padding: 30px;
+  display: flex;
+  height: 50px;
+  gap: 10px;
+`;
+
+const StyledLink = styled(Link)`
+  color: black;
+  text-align: start;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 30px;
+  position: relative;
+  transform: scale(1);
+  transition: all 200ms ease-in;
+  display: inline-block;
+  position: relative;
+  ::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 20%;
+    left: 0;
+    background-color: #b63e47;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  :hover {
+    transform: scale(1.1);
+  }
+  :hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  :hover + div {
+    animation: ${Rotate} 1500ms linear infinite;
+  }
+`;
+
+const StyledImage = styled.div`
+  background-repeat: no-repeat;
+  width: 40px;
+  background: url(${linkImage});
+  background-size: contain;
+  background-repeat: no-repeat;
+  :hover {
+    animation: ${Rotate} 1500ms linear infinite;
+  }
 `;
 
 const Home = ({ books, status }) => {
@@ -93,7 +151,8 @@ const Home = ({ books, status }) => {
         <MainDisplay>
           <AnimatedTitle />
           <StyledLinkContainer>
-            <Link to={'/shop'}>Shop</Link>
+            <StyledLink to={'/shop'}>Shop</StyledLink>
+            <StyledImage />
           </StyledLinkContainer>
           <InformationModal />
           <CardDisplay>

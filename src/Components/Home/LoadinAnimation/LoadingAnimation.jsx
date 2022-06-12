@@ -92,7 +92,7 @@ const Book = styled.li`
   width: 40px;
   height: 120px;
   opacity: 0;
-  background-color: #1e6cc7;
+  background-color: #b63e47;
   border: 5px solid white;
   transform-origin: bottom left;
   transform: translateX(300px);
@@ -217,7 +217,7 @@ const Shelf = styled.div`
   width: 300px;
   height: 10px;
   margin: 0 auto;
-  background-color: #1e6cc7;
+  background-color: #b63e47;
   position: relative;
 
   &:before,
