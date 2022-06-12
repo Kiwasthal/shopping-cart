@@ -12,6 +12,12 @@ import NavBar from './Components/Shop/Navbar/Navbar';
 function App() {
   const [isLoading, fetchedBooks] = UseBookData([]);
   const [shoppingCart, setShoppingCart] = useState([]);
+  const [cartShowing, setCartShowing] = useState(false);
+
+  const showCart = () => setCartShowing(!cartShowing);
+  const cartOpacity = cartShowing ? 1 : 0;
+  console.log(cartOpacity);
+
   const AddItem = item => {
     let addedCart;
     let checkExist = shoppingCart.filter(content => content.name === item.name);
@@ -34,7 +40,14 @@ function App() {
         <Route component={<NavBar />} pattern="/">
           <Route
             path="/shop"
-            element={<Shop status={isLoading} books={fetchedBooks} />}
+            element={
+              <Shop
+                status={isLoading}
+                books={fetchedBooks}
+                clickCart={showCart}
+                cartOpacity={cartOpacity}
+              />
+            }
           />
           <Route
             path="/shop/:id"

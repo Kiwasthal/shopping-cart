@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import CartDropDown from '../../Cart/CartDropDown';
 
 const StyledNavBar = styled.nav`
   grid-area: 2/ 1 / 3 /2;
@@ -13,12 +14,14 @@ const StyledNavBar = styled.nav`
   background-color: #b63e47;
 `;
 
-const NavBar = () => {
+const NavBar = ({ count, clickCart, cartOpacity }) => {
   return (
     <StyledNavBar>
       <Link to="/">Home</Link>
-      <Link to="/shop">Shop</Link>
+      <p onClick={clickCart}>Cart</p>
+      {<div>{count}</div>}
       <Link to="/cart">Cart</Link>
+      <CartDropDown cartOpacity={cartOpacity} />
     </StyledNavBar>
   );
 };
