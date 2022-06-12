@@ -3,9 +3,23 @@ import UseBookData from './Components/Hooks/useFetchData';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Shop from './Components/Shop/Shop';
+import { useState } from 'react';
 
 function App() {
   const [isLoading, fetchedBooks] = UseBookData([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
+  const AddItem = item => {
+    let addedCart;
+    let checkExist = shoppingCart.filter(content => content.name === item);
+    if (checkExist.length === 0) addedCart = [...shoppingCart, item];
+    else
+      addedCart = shoppingCart.map(content => {
+        if (content.name === item) content.quantity++;
+        return content;
+      });
+    setShoppingCart(addedCart);
+  };
+
   return (
     <BrowserRouter>
       <Routes>

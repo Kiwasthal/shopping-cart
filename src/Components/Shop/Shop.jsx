@@ -3,26 +3,20 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useBooks from '../Hooks/useBooks';
 import LoadingAnimation from '../Home/LoadinAnimation/LoadingAnimation';
+import ShopCard from './ShopCard/ShopCard';
 
 const StyledContainer = styled.div`
-  min-height: 200vh;
-  min-width: 100vw;
-  display: grid;
-  grid-template-rows: 10vh auto;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, 20rem);
   background-color: #fff;
-  grid-auto-flow: dense;
-  position: relative;
-  overflow: hidden;
-  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: 10vh 1fr;
 `;
 
 const StyledNavBar = styled.nav`
-  grid-area: 1/2 / 1 /2;
+  grid-area: 2/ 1 / 3 /2;
   margin: 0;
   padding: 0;
   position: fixed;
+  z-index: 1001;
   top: 0;
   height: 10vh;
   width: 100%;
@@ -30,7 +24,21 @@ const StyledNavBar = styled.nav`
 `;
 
 const BooksContainer = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, 20rem);
   grid-area: 2 / 1 / 3 / 2;
+  grid-auto-flow: dense;
+  position: relative;
+  overflow: hidden;
+  overflow-x: hidden;
+  & > * {
+    align-items: flex-start;
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 
 const Shop = ({ books, status }) => {
@@ -47,7 +55,12 @@ const Shop = ({ books, status }) => {
         </StyledNavBar>
         <BooksContainer>
           {ShopBooks.map(book => (
-            <div>{book.bookAuthor}</div>
+            <ShopCard
+              key={book.id}
+              image={book.booksUrl}
+              title={book.bookTitle}
+              author={book.bookAuthor}
+            />
           ))}
         </BooksContainer>
       </StyledContainer>
