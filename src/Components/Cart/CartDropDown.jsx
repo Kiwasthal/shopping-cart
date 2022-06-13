@@ -55,9 +55,6 @@ const ShoppingCartTotal = styled.div`
   float: right;
 `;
 
-const LighterText = styled.span`
-  color: #abb0be;
-`;
 const MainColorText = styled.span`
   color: #6394f8;
 `;

@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const CartCard = styled.div`
@@ -30,8 +29,9 @@ const ItemInfo = styled.p`
   margin: 0;
 `;
 
-const CheckoutCard = ({ item, index, itemQ, id, methods }) => {
+const CheckoutCard = ({ item, itemQ, id, methods }) => {
   let increment = () => methods.increment(id);
+  let decrement = () => methods.decrement(id);
 
   return (
     <CartCard>
@@ -41,7 +41,8 @@ const CheckoutCard = ({ item, index, itemQ, id, methods }) => {
         <ItemInfo>Price : {item.price}</ItemInfo>
         <ItemInfo>Price : {itemQ}</ItemInfo>
       </ItemDetails>
-      <button onClick={increment}>ADD</button>
+      <button onClick={increment}> + </button>
+      <button onClick={decrement}> - </button>
     </CartCard>
   );
 };

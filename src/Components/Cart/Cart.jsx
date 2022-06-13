@@ -44,8 +44,18 @@ const Cart = ({ clickCart, cartOpacity, items, total }) => {
     setQuantities(newQuantities);
   };
 
+  const decrementQuantity = id => {
+    let prevQuantities = [...quantities];
+    let newQuantities = prevQuantities.map(value => {
+      if (value.id === id && value.quantity > 0) value.quantity--;
+      return value;
+    });
+    setQuantities(newQuantities);
+  };
+
   const methods = {
     increment: incrementQuantity,
+    decrement: decrementQuantity,
   };
 
   const displayItems =
