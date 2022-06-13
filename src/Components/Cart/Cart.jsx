@@ -35,6 +35,15 @@ const Cart = ({ clickCart, cartOpacity, items, total }) => {
     setIsLoaded(true);
   }, [items, quantities]);
 
+  const manageInput = (id, e) => {
+    let prevQuantities = [...quantities];
+    let newQuantities = prevQuantities.map(value => {
+      if (value.id === id) value.quantity = e.target.value;
+      return value;
+    });
+    setQuantities(newQuantities);
+  };
+
   const incrementQuantity = id => {
     let prevQuantities = [...quantities];
     let newQuantities = prevQuantities.map(value => {
@@ -56,6 +65,7 @@ const Cart = ({ clickCart, cartOpacity, items, total }) => {
   const methods = {
     increment: incrementQuantity,
     decrement: decrementQuantity,
+    manageInput: manageInput,
   };
 
   const displayItems =

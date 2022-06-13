@@ -43,6 +43,7 @@ const CheckoutCard = ({ item, itemQ, id, methods }) => {
       </ItemDetails>
       <button onClick={increment}> + </button>
       <button onClick={decrement}> - </button>
+      <input type="number" onChange={e => methods.manageInput(id, e)} />
     </CartCard>
   );
 };
