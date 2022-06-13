@@ -26,7 +26,7 @@ const InformationContainer = styled.div`
   width: 90%;
   display: grid;
   justify-self: center;
-  grid-template-rows: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 2fr;
   padding: 20px;
 `;
@@ -35,11 +35,65 @@ const ImageContainer = styled.img`
   background-size: contain;
   background-repeat: no-repeat;
   width: 50%;
+  align-self: center;
   border: 3px solid black;
   justify-self: center;
 `;
 
-const BookDetails = styled.div``;
+const BookDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
+const BookTitle = styled.p`
+  display: flex;
+  align-items: flex-end;
+  height: 20%;
+  font-size: 36px;
+  font-style: italic;
+  margin: 0;
+`;
+
+const BookAuthor = styled.p`
+  height: 20%;
+  font-size: 28px;
+  font-style: italic;
+  margin: 0;
+`;
+
+const AddToCartButton = styled.button`
+  align-self: flex-start;
+  justify-self: flex-start;
+  width: 200px;
+  background-color: #b63e47;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  height: 80px;
+  border: 3px solid black;
+  transition: all 200ms ease-in;
+  &:hover {
+    background-color: #fff;
+    color: #b63e47;
+    &:active {
+      transform: translateY(10px) scale(1.1);
+      border: 4px solid yellow;
+    }
+  }
+`;
+
+const BookInfo = styled.p`
+  height: 20%;
+  font-size: 28px;
+  margin: 0;
+`;
+
+const SubjectHolder = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 const DetailedItem = ({
   books,
@@ -83,9 +137,23 @@ const DetailedItem = ({
           <BackGroundImage />
           <InformationContainer>
             <ImageContainer src={detailedBook.bookUrl} />
-            <h1>{detailedBook.bookTitle}</h1>
-            <p>{detailedBook.bookPrice} €</p>
-            <button onClick={clickHandler}>Add to Cart</button>
+            <BookDetails>
+              <BookTitle>{detailedBook.bookTitle}</BookTitle>
+              <BookAuthor>- {detailedBook.bookAuthor}</BookAuthor>
+              <BookInfo>Price : {detailedBook.bookPrice}€ </BookInfo>
+              <BookInfo>Genre : {detailedBook.bookShelves}</BookInfo>
+              <BookInfo>Downloads : {detailedBook.bookDownloads}</BookInfo>
+            </BookDetails>
+
+            <SubjectHolder>
+              {detailedBook.bookSubjects.map((subject, index) => (
+                <p key={index}>{subject}</p>
+              ))}
+            </SubjectHolder>
+
+            <AddToCartButton onClick={clickHandler}>
+              ADD TO CART
+            </AddToCartButton>
           </InformationContainer>
           <BackGroundImage />
         </StyledBookDisplay>

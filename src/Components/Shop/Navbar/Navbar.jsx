@@ -43,7 +43,7 @@ const allLinks = styled(Link)`
     transform: scale(1.1);
   }
   :hover::after {
-    transform: scaleX(1);
+    transform: scaleX(1.1);
     transform-origin: bottom left;
   }
   :visited {

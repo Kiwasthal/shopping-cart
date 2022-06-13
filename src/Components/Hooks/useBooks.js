@@ -7,17 +7,21 @@ const useBooks = (handler, value) => {
       handler(
         value
           ? value.results.map((book, index) => {
-              let author;
+              //Initialize default values in case of missing param
+              let genre = 'Fantasy';
+              let author = 'Uknown';
               if (book.authors[0]) author = book.authors[0].name;
-              else author = 'Uknown';
+              if (book.bookshelves[0]) genre = book.bookshelves[0];
 
               return {
                 id: book.id,
                 bookTitle: book.title,
                 bookAuthor: author,
                 bookUrl: book.formats['image/jpeg'],
-                bookShelves: book.bookshelves[0],
+                bookShelves: genre,
                 bookPrice: bookPrices[index],
+                bookDownloads: book.download_count,
+                bookSubjects: book.subjects,
               };
             })
           : []

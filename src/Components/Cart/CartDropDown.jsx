@@ -6,7 +6,7 @@ import bookStack from '../../Assets/bookStack.svg';
 
 const CartContainer = styled.div`
   top: 55px;
-  left: -10px;
+  left: -60px;
   grid-area: 1 / 3 / 2 / 4;
   margin: auto;
   width: 80%;
@@ -98,7 +98,6 @@ const CartDropDown = ({ total, items, cartOpacity, close }) => {
   const [display, setDisplay] = useState('');
 
   useEffect(() => {
-    console.log('ev');
     cartOpacity === 0
       ? setTimeout(() => setDisplay('none'), 300)
       : setDisplay('');
@@ -138,11 +137,3 @@ const CartDropDown = ({ total, items, cartOpacity, close }) => {
 };
 
 export default CartDropDown;
-
-//use this later//
-const icon = styled.div`
-  color: #515783;
-  font-size: 24px;
-  margin-right: 7px;
-  float: left;
-`;
