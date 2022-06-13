@@ -11,8 +11,8 @@ const ClearFixItem = styled.li`
 `;
 
 const ItemImage = styled.img`
-  height: 10%;
-  width: 10%;
+  height: 75px;
+  width: 50px;
   float: left;
   margin-right: 12px;
 `;
@@ -37,7 +37,7 @@ const ClearFix = ({ image, name, quantity, price }) => {
     <ClearFixItem>
       <ItemImage src={image} alt={`image for ${name}`} />
       <ItemName>{name}</ItemName>
-      <ItemPrice>Price :{price}</ItemPrice>
+      <ItemPrice>Price :{price}€</ItemPrice>
       <ItemQuantity>Quantity: {quantity}</ItemQuantity>
     </ClearFixItem>
   );

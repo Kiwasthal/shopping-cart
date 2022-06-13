@@ -27,11 +27,6 @@ const BooksContainer = styled.div`
   }
 `;
 
-const LinkPara = styled.p`
-  margin: 0;
-  padding: 0;
-`;
-
 const Shop = ({ books, status, clickCart, cartOpacity, items, total }) => {
   const [ShopBooks, setShopBooks] = useState(books);
   let content = <LoadingAnimation />;

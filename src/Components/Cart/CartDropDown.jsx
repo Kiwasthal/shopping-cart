@@ -2,10 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ClearFix from './Clearfix';
-
-let time = () => {
-  setTimeout(() => 'none', 100);
-};
+import bookStack from '../../Assets/bookStack.svg';
 
 const CartContainer = styled.div`
   top: 55px;
@@ -53,6 +50,7 @@ const ShoppingCartHeader = styled.div`
 `;
 
 const ShoppingCartTotal = styled.div`
+  margin-top: 30px;
   float: right;
 `;
 
@@ -88,6 +86,13 @@ const ButtonLink = styled(Link)`
   }
 `;
 
+const StackLogoImage = styled.img`
+  height: 50px;
+  font-size: 24px;
+  margin-top: 10px;
+  float: left;
+`;
+
 const CartDropDown = ({ total, items, cartOpacity, close }) => {
   let totalPrice = total();
   const [display, setDisplay] = useState('');
@@ -103,7 +108,7 @@ const CartDropDown = ({ total, items, cartOpacity, close }) => {
     <CartContainer opacity={cartOpacity} display={display}>
       <ShoppingCart>
         <ShoppingCartHeader>
-          <div>ShoppingIcon 3</div>
+          <StackLogoImage src={bookStack} />
           <ShoppingCartTotal>
             <LighterText>Total : {totalPrice || 0}</LighterText>
             <MainColorText>{total}</MainColorText>
