@@ -95,8 +95,9 @@ const CartImg = styled.img`
   cursor: pointer;
 `;
 
-const NavBar = ({ clickCart, cartOpacity, items, total }) => {
+const NavBar = ({ items, total, cartHandler }) => {
   const [count, setCount] = useState(0);
+  const { show, isShowing, opacity } = cartHandler;
 
   const findCount = values => {
     let count = 0;
@@ -110,21 +111,21 @@ const NavBar = ({ clickCart, cartOpacity, items, total }) => {
 
   return (
     <StyledNavBar>
-      <LinkPara>
+      <LinkPara onClick={isShowing ? show : null}>
         <HomeLink to="/">Home</HomeLink>
       </LinkPara>
-      <LinkPara>
+      <LinkPara onClick={isShowing ? show : null}>
         <ShopLink to="/shop">Shop</ShopLink>
       </LinkPara>
 
       <CartContainer>
         {items.length > 0 ? <CountContainer>{count}</CountContainer> : null}
-        <CartImg src={cartIcon} onClick={clickCart} />
+        <CartImg src={cartIcon} onClick={show} />
       </CartContainer>
 
       <CartDropDown
-        cartOpacity={cartOpacity}
-        close={clickCart}
+        cartOpacity={opacity}
+        close={show}
         items={items}
         total={total}
       />

@@ -29,6 +29,12 @@ function App() {
     setShoppingCart(newCart);
   };
 
+  const cartHandler = {
+    show: showCart,
+    isShowing: cartShowing,
+    opacity: cartOpacity,
+  };
+
   return (
     <BrowserRouter>
       <Routes>
@@ -43,8 +49,7 @@ function App() {
               <Shop
                 status={isLoading}
                 books={fetchedBooks}
-                clickCart={showCart}
-                cartOpacity={cartOpacity}
+                cart={cartHandler}
                 items={shoppingCart}
               />
             }
@@ -55,8 +60,7 @@ function App() {
               <DetailedItem
                 status={isLoading}
                 books={fetchedBooks}
-                clickCart={showCart}
-                cartOpacity={cartOpacity}
+                cart={cartHandler}
                 addItem={addCartItem}
                 items={shoppingCart}
               />
@@ -68,6 +72,7 @@ function App() {
               <Cart
                 status={isLoading}
                 books={fetchedBooks}
+                cart={cartHandler}
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
                 items={shoppingCart}

@@ -95,23 +95,14 @@ const SubjectHolder = styled.div`
   align-items: center;
 `;
 
-const DetailedItem = ({
-  books,
-  status,
-  clickCart,
-  items,
-  cartOpacity,
-  addItem,
-}) => {
+const DetailedItem = ({ books, status, items, addItem, cart }) => {
   const [allBooks, setAllBooks] = useState(books);
 
   let content = <LoadingAnimation />;
   useBooks(setAllBooks, books);
   let params = useParams();
 
-  const cartHandler = () => {
-    if (cartOpacity === 0) clickCart();
-  };
+  const cartHandler = () => (!cart.isShowing ? cart.show() : null);
 
   if (!status && allBooks && allBooks.length > 0) {
     const detailedBook = getBookDetails(parseInt(params.id, 10), allBooks);
@@ -127,7 +118,7 @@ const DetailedItem = ({
     };
     content = (
       <StyledContainer>
-        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} items={items} />
+        <NavBar items={items} cartHandler={cart} />
         <StyledBookDisplay>
           <BackGroundImage />
           <InformationContainer>

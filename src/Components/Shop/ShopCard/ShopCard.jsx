@@ -35,14 +35,17 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const ShopCard = ({ title, image, bookId, items }) => {
+const ShopCard = ({ title, image, bookId, cartHandler }) => {
+  const { show, isShowing } = cartHandler;
   return (
     <StyledCardContainer>
-      <Link to={`/shop/${bookId}`}>
-        <StyledCardImage image={image} />{' '}
+      <Link onClick={isShowing ? show : null} to={`/shop/${bookId}`}>
+        <StyledCardImage image={image} />
       </Link>
 
-      <StyledLink to={`/shop/${bookId}`}>{title}</StyledLink>
+      <StyledLink onClick={isShowing ? show : null} to={`/shop/${bookId}`}>
+        {title}
+      </StyledLink>
     </StyledCardContainer>
   );
 };

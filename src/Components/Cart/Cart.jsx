@@ -23,7 +23,7 @@ const CartItems = styled.div`
   padding: 25px;
 `;
 
-const Cart = ({ clickCart, cartOpacity, items, total }) => {
+const Cart = ({ items, total, cart }) => {
   const [quantities, setQuantities] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -86,12 +86,7 @@ const Cart = ({ clickCart, cartOpacity, items, total }) => {
     ? (content = <p>Cart is empty</p>)
     : (content = (
         <StyledContainer>
-          <NavBar
-            clickCart={clickCart}
-            cartOpacity={cartOpacity}
-            items={items}
-            total={total}
-          />
+          <NavBar cartHandler={cart} items={items} total={total} />
           <CartItems>
             {displayItems} <p>Total :{totalPrice}</p>
           </CartItems>
