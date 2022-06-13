@@ -33,20 +33,27 @@ const ShopLink = styled(allLinks)`
 const CartContainer = styled.div`
   grid-area: 1 / 3 / 2 / 4;
   display: grid;
-  margin-left: 400px;
+  margin-left: 315px;
   margin-top: 20px;
   justify-content: center;
+`;
+
+const LinkPara = styled.p`
+  margin: 0;
+  padding: 0;
+  align-self: center;
+  justify-self: center;
 `;
 
 const NavBar = ({ count, clickCart, cartOpacity, items, total }) => {
   return (
     <StyledNavBar>
-      <p>
+      <LinkPara>
         <HomeLink to="/">Home</HomeLink>
-      </p>
-      <p>
+      </LinkPara>
+      <LinkPara>
         <ShopLink to="/shop">Shop</ShopLink>
-      </p>
+      </LinkPara>
 
       <CartContainer>
         <p onClick={clickCart}>Cart</p>

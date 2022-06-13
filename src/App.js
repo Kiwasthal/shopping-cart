@@ -31,11 +31,15 @@ function App() {
   };
 
   const findTotalValue = () =>
-    shoppingCart.reduce(
-      (prevValue, nextValue) =>
-        prevValue + nextValue.price * nextValue.quantity,
-      0
-    );
+    (
+      Math.round(
+        shoppingCart.reduce(
+          (prevValue, nextValue) =>
+            prevValue + nextValue.price * nextValue.quantity,
+          0
+        ) * 100
+      ) / 100
+    ).toFixed(2);
 
   return (
     <BrowserRouter>

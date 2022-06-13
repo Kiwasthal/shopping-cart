@@ -9,7 +9,7 @@ import LoadingAnimation from '../../Home/LoadinAnimation/LoadingAnimation';
 const StyledContainer = styled.div`
   background-color: #fff;
   display: grid;
-  grid-template-rows: 10vh 1fr;
+  grid-template-rows: 7vh 1fr;
   height: 100vh;
   width: 100vw;
   overflow: hidden;

@@ -1,6 +1,11 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ClearFix from './Clearfix';
+
+let time = () => {
+  setTimeout(() => 'none', 100);
+};
 
 const CartContainer = styled.div`
   top: 55px;
@@ -8,13 +13,15 @@ const CartContainer = styled.div`
   grid-area: 1 / 3 / 2 / 4;
   margin: auto;
   width: 80%;
-  position: relative;
+  position: absolute;
   transition: all 200ms ease-in;
   opacity: ${props => props.opacity};
+  display: ${props => props.display};
 `;
 
 const ShoppingCart = styled.div`
   z-index: 9000;
+
   margin: 20px 0;
   float: right;
   background: white;
@@ -83,8 +90,17 @@ const ButtonLink = styled(Link)`
 
 const CartDropDown = ({ total, items, cartOpacity, close }) => {
   let totalPrice = total();
+  const [display, setDisplay] = useState('');
+
+  useEffect(() => {
+    console.log('ev');
+    cartOpacity === 0
+      ? setTimeout(() => setDisplay('none'), 300)
+      : setDisplay('');
+  }, [cartOpacity]);
+
   return (
-    <CartContainer opacity={cartOpacity}>
+    <CartContainer opacity={cartOpacity} display={display}>
       <ShoppingCart>
         <ShoppingCartHeader>
           <div>ShoppingIcon 3</div>
