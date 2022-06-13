@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import ClearFix from './Clearfix';
 import bookStack from '../../Assets/bookStack.svg';
+import { findTotalValue } from '../Helpers/TotalValue';
 
 const CartContainer = styled.div`
   top: 55px;
@@ -93,8 +94,8 @@ const StackLogoImage = styled.img`
   float: left;
 `;
 
-const CartDropDown = ({ total, items, cartOpacity, close }) => {
-  let totalPrice = total();
+const CartDropDown = ({ items, cartOpacity, close }) => {
+  let totalPrice = findTotalValue(items);
   const [display, setDisplay] = useState('');
 
   useEffect(() => {
@@ -109,8 +110,7 @@ const CartDropDown = ({ total, items, cartOpacity, close }) => {
         <ShoppingCartHeader>
           <StackLogoImage src={bookStack} />
           <ShoppingCartTotal>
-            <LighterText>Total : {totalPrice || 0}</LighterText>
-            <MainColorText>{total}</MainColorText>
+            <MainColorText>Total : {totalPrice} Evra</MainColorText>
           </ShoppingCartTotal>
         </ShoppingCartHeader>
         {/* <-- end of shopping card Header */}

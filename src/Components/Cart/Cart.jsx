@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import NavBar from '../Shop/Navbar/Navbar';
 import CheckoutCard from './CheckoutCard';
 import { useEffect, useState } from 'react';
-import findTotalValue from '../Helpers/TotalValue';
+import { findTotalValue } from '../Helpers/TotalValue';
 
 const StyledContainer = styled.div`
   background-color: #fff;
@@ -30,18 +30,8 @@ const Cart = ({ clickCart, cartOpacity, items, total }) => {
   let content;
 
   useEffect(() => {
-    const findTotalValue = () =>
-      (
-        Math.round(
-          items.reduce(
-            (prevValue, nextValue) =>
-              prevValue + nextValue.price * nextValue.quantity,
-            0
-          ) * 100
-        ) / 100
-      ).toFixed(2);
     setQuantities(items);
-    setTotalPrice(findTotalValue());
+    setTotalPrice(findTotalValue(items));
     setIsLoaded(true);
   }, [items, quantities]);
 

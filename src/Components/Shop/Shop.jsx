@@ -27,19 +27,14 @@ const BooksContainer = styled.div`
   }
 `;
 
-const Shop = ({ books, status, clickCart, cartOpacity, items, total }) => {
+const Shop = ({ books, status, clickCart, cartOpacity, items }) => {
   const [ShopBooks, setShopBooks] = useState(books);
   let content = <LoadingAnimation />;
   useBooks(setShopBooks, books);
   if (!status && ShopBooks && ShopBooks.length > 0) {
     content = (
       <StyledContainer>
-        <NavBar
-          clickCart={clickCart}
-          cartOpacity={cartOpacity}
-          items={items}
-          total={total}
-        />
+        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} items={items} />
         <BooksContainer>
           {ShopBooks.map(book => (
             <ShopCard

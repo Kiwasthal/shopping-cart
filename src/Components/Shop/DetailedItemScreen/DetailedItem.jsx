@@ -102,7 +102,6 @@ const DetailedItem = ({
   items,
   cartOpacity,
   addItem,
-  total,
 }) => {
   const [allBooks, setAllBooks] = useState(books);
 
@@ -128,12 +127,7 @@ const DetailedItem = ({
     };
     content = (
       <StyledContainer>
-        <NavBar
-          clickCart={clickCart}
-          cartOpacity={cartOpacity}
-          items={items}
-          total={total}
-        />
+        <NavBar clickCart={clickCart} cartOpacity={cartOpacity} items={items} />
         <StyledBookDisplay>
           <BackGroundImage />
           <InformationContainer>

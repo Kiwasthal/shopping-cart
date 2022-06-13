@@ -6,7 +6,6 @@ import Shop from './Components/Shop/Shop';
 import Cart from './Components/Cart/Cart';
 import DetailedItem from './Components/Shop/DetailedItemScreen/DetailedItem';
 import { useState } from 'react';
-
 import NavBar from './Components/Shop/Navbar/Navbar';
 
 function App() {
@@ -30,17 +29,6 @@ function App() {
     setShoppingCart(newCart);
   };
 
-  const findTotalValue = () =>
-    (
-      Math.round(
-        shoppingCart.reduce(
-          (prevValue, nextValue) =>
-            prevValue + nextValue.price * nextValue.quantity,
-          0
-        ) * 100
-      ) / 100
-    ).toFixed(2);
-
   return (
     <BrowserRouter>
       <Routes>
@@ -58,7 +46,6 @@ function App() {
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
                 items={shoppingCart}
-                total={findTotalValue}
               />
             }
           />
@@ -72,7 +59,6 @@ function App() {
                 cartOpacity={cartOpacity}
                 addItem={addCartItem}
                 items={shoppingCart}
-                total={findTotalValue}
               />
             }
           />
@@ -85,7 +71,6 @@ function App() {
                 clickCart={showCart}
                 cartOpacity={cartOpacity}
                 items={shoppingCart}
-                total={findTotalValue}
               />
             }
           />
