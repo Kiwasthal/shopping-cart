@@ -105,6 +105,7 @@ const DetailedItem = ({
   total,
 }) => {
   const [allBooks, setAllBooks] = useState(books);
+
   let content = <LoadingAnimation />;
   useBooks(setAllBooks, books);
   let params = useParams();
