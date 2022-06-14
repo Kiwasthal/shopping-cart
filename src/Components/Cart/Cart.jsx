@@ -86,7 +86,6 @@ const Cart = ({ items, total, cart }) => {
     ? (content = <p>Cart is empty</p>)
     : (content = (
         <StyledContainer>
-          <NavBar cartHandler={cart} items={items} total={total} />
           <CartItems>
             {displayItems} <p>Total :{totalPrice}</p>
           </CartItems>

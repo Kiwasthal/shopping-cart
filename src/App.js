@@ -19,67 +19,57 @@ function App() {
   const addCartItem = item => {
     let newCart;
     let checkExist = shoppingCart.filter(content => content.name === item.name);
-    if (checkExist.length === 0) newCart = [...shoppingCart, item];
-    else
-      newCart = shoppingCart.map(content => {
-        if (content.name === item.name) content.quantity++;
-        return content;
-      });
-
+    checkExist.length === 0
+      ? (newCart = [...shoppingCart, item])
+      : (newCart = shoppingCart.map(content => {
+          if (content.name === item.name) content.quantity++;
+          return content;
+        }));
     setShoppingCart(newCart);
   };
 
   const cartHandler = {
-    show: showCart,
     isShowing: cartShowing,
     opacity: cartOpacity,
+    show: showCart,
+    addItem: addCartItem,
   };
 
   return (
     <BrowserRouter>
+      <NavBar cartHandler={cartHandler} items={shoppingCart} />
       <Routes>
         <Route
           path="/"
           element={<Home status={isLoading} books={fetchedBooks} />}
+        ></Route>
+        <Route
+          path="/shop"
+          element={
+            <Shop status={isLoading} books={fetchedBooks} cart={cartHandler} />
+          }
         />
-        <Route component={<NavBar />} pattern="/">
-          <Route
-            path="/shop"
-            element={
-              <Shop
-                status={isLoading}
-                books={fetchedBooks}
-                cart={cartHandler}
-                items={shoppingCart}
-              />
-            }
-          />
-          <Route
-            path="/shop/:id"
-            element={
-              <DetailedItem
-                status={isLoading}
-                books={fetchedBooks}
-                cart={cartHandler}
-                addItem={addCartItem}
-                items={shoppingCart}
-              />
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                status={isLoading}
-                books={fetchedBooks}
-                cart={cartHandler}
-                clickCart={showCart}
-                cartOpacity={cartOpacity}
-                items={shoppingCart}
-              />
-            }
-          />
-        </Route>
+        <Route
+          path="/shop/:id"
+          element={
+            <DetailedItem
+              status={isLoading}
+              books={fetchedBooks}
+              cart={cartHandler}
+            />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              status={isLoading}
+              books={fetchedBooks}
+              cart={cartHandler}
+              items={shoppingCart}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

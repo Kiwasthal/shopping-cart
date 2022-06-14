@@ -95,7 +95,7 @@ const SubjectHolder = styled.div`
   align-items: center;
 `;
 
-const DetailedItem = ({ books, status, items, addItem, cart }) => {
+const DetailedItem = ({ books, status, items, cart }) => {
   const [allBooks, setAllBooks] = useState(books);
 
   let content = <LoadingAnimation />;
@@ -107,7 +107,7 @@ const DetailedItem = ({ books, status, items, addItem, cart }) => {
   if (!status && allBooks && allBooks.length > 0) {
     const detailedBook = getBookDetails(parseInt(params.id, 10), allBooks);
     const clickHandler = () => {
-      addItem({
+      cart.addItem({
         name: detailedBook.bookTitle,
         price: detailedBook.bookPrice,
         image: detailedBook.bookUrl,
@@ -118,7 +118,6 @@ const DetailedItem = ({ books, status, items, addItem, cart }) => {
     };
     content = (
       <StyledContainer>
-        <NavBar items={items} cartHandler={cart} />
         <StyledBookDisplay>
           <BackGroundImage />
           <InformationContainer>

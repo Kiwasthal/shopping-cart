@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useState } from 'react';
-import NavBar from './Navbar/Navbar';
 import useBooks from '../Hooks/useBooks';
 import LoadingAnimation from '../Home/LoadinAnimation/LoadingAnimation';
 import ShopCard from './ShopCard/ShopCard';
@@ -27,14 +26,13 @@ const BooksContainer = styled.div`
   }
 `;
 
-const Shop = ({ books, status, items, cart }) => {
+const Shop = ({ books, status, cart }) => {
   const [ShopBooks, setShopBooks] = useState(books);
   let content = <LoadingAnimation />;
   useBooks(setShopBooks, books);
   if (!status && ShopBooks && ShopBooks.length > 0) {
     content = (
       <StyledContainer>
-        <NavBar items={items} cartHandler={cart} />
         <BooksContainer>
           {ShopBooks.map(book => (
             <ShopCard
@@ -42,7 +40,6 @@ const Shop = ({ books, status, items, cart }) => {
               image={book.bookUrl}
               title={book.bookTitle}
               bookId={book.id}
-              items={items}
               cartHandler={cart}
             />
           ))}

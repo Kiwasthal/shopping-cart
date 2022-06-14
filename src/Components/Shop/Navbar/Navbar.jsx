@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import CartDropDown from '../../Cart/CartDropDown';
 import cartIcon from '../../../Assets/cartIcon.svg';
 import { useEffect, useState } from 'react';
@@ -95,7 +95,9 @@ const CartImg = styled.img`
   cursor: pointer;
 `;
 
-const NavBar = ({ items, total, cartHandler }) => {
+const NavBar = ({ items, cartHandler }) => {
+  let navigation = useLocation();
+
   const [count, setCount] = useState(0);
   const { show, isShowing, opacity } = cartHandler;
 
@@ -109,28 +111,24 @@ const NavBar = ({ items, total, cartHandler }) => {
     if (items.length > 0) setCount(findCount(items));
   }, [items]);
 
-  return (
-    <StyledNavBar>
-      <LinkPara onClick={isShowing ? show : null}>
-        <HomeLink to="/">Home</HomeLink>
-      </LinkPara>
-      <LinkPara onClick={isShowing ? show : null}>
-        <ShopLink to="/shop">Shop</ShopLink>
-      </LinkPara>
+  if (navigation.pathname !== '/')
+    return (
+      <StyledNavBar>
+        <LinkPara onClick={isShowing ? show : null}>
+          <HomeLink to="/">Home</HomeLink>
+        </LinkPara>
+        <LinkPara onClick={isShowing ? show : null}>
+          <ShopLink to="shop">Shop</ShopLink>
+        </LinkPara>
 
-      <CartContainer>
-        {items.length > 0 ? <CountContainer>{count}</CountContainer> : null}
-        <CartImg src={cartIcon} onClick={show} />
-      </CartContainer>
+        <CartContainer>
+          {items.length > 0 ? <CountContainer>{count}</CountContainer> : null}
+          <CartImg src={cartIcon} onClick={show} />
+        </CartContainer>
 
-      <CartDropDown
-        cartOpacity={opacity}
-        close={show}
-        items={items}
-        total={total}
-      />
-    </StyledNavBar>
-  );
+        <CartDropDown cartOpacity={opacity} close={show} items={items} />
+      </StyledNavBar>
+    );
 };
 
 export default NavBar;
