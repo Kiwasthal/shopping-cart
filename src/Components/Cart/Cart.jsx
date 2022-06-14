@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import CheckoutCard from './CheckoutCard';
-import { useEffect, useState } from 'react';
 import { findTotalValue } from '../Helpers/TotalValue';
 
 const StyledContainer = styled.div`
@@ -64,12 +63,7 @@ const Cart = ({ items, setItems }) => {
   const displayItems =
     items.length > 0
       ? items.map(item => (
-          <CheckoutCard
-            item={item}
-            key={item.id}
-            id={item.id}
-            methods={methods}
-          />
+          <CheckoutCard item={item} key={item.id} methods={methods} />
         ))
       : null;
 

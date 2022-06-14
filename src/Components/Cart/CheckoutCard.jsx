@@ -30,8 +30,8 @@ const ItemInfo = styled.p`
 `;
 
 const CheckoutCard = ({ item, itemQuantity, id, methods }) => {
-  let increment = () => methods.increment(id);
-  let decrement = () => methods.decrement(id);
+  let increment = () => methods.increment(item.id);
+  let decrement = () => methods.decrement(item.id);
 
   return (
     <CartCard>
@@ -45,7 +45,7 @@ const CheckoutCard = ({ item, itemQuantity, id, methods }) => {
       <button onClick={decrement}> - </button>
       <input
         type="number"
-        onChange={e => methods.manageInput(id, e)}
+        onChange={e => methods.manageInput(item.id, e)}
         placeholder={itemQuantity}
       />
     </CartCard>
