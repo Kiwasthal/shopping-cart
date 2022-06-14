@@ -107,7 +107,7 @@ const CartDropDown = ({ items, cartOpacity, close }) => {
         <ShoppingCartHeader>
           <StackLogoImage src={bookStack} />
           <ShoppingCartTotal>
-            <MainColorText>Total : {totalPrice} Evra</MainColorText>
+            <MainColorText>Total : {totalPrice} €</MainColorText>
           </ShoppingCartTotal>
         </ShoppingCartHeader>
         {/* <-- end of shopping card Header */}

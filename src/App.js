@@ -61,14 +61,7 @@ function App() {
         />
         <Route
           path="/cart"
-          element={
-            <Cart
-              status={isLoading}
-              books={fetchedBooks}
-              cart={cartHandler}
-              items={shoppingCart}
-            />
-          }
+          element={<Cart items={shoppingCart} setItems={setShoppingCart} />}
         />
       </Routes>
     </BrowserRouter>

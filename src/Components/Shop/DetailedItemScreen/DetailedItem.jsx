@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { useState } from 'react';
 import useBooks from '../../Hooks/useBooks';
 import styled from 'styled-components';
-import NavBar from '../Navbar/Navbar';
 import LoadingAnimation from '../../Home/LoadinAnimation/LoadingAnimation';
 
 const StyledContainer = styled.div`

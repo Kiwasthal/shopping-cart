@@ -29,7 +29,7 @@ const ItemInfo = styled.p`
   margin: 0;
 `;
 
-const CheckoutCard = ({ item, itemQ, id, methods }) => {
+const CheckoutCard = ({ item, itemQuantity, id, methods }) => {
   let increment = () => methods.increment(id);
   let decrement = () => methods.decrement(id);
 
@@ -38,15 +38,15 @@ const CheckoutCard = ({ item, itemQ, id, methods }) => {
       <CardImg src={item.image} />
       <CardTitle>{item.name}</CardTitle>
       <ItemDetails>
-        <ItemInfo>Price : {item.price}</ItemInfo>
-        <ItemInfo>Price : {itemQ}</ItemInfo>
+        <ItemInfo>Price : {item.price} €</ItemInfo>
+        <ItemInfo>Quantity : {item.quantity} </ItemInfo>
       </ItemDetails>
       <button onClick={increment}> + </button>
       <button onClick={decrement}> - </button>
       <input
         type="number"
         onChange={e => methods.manageInput(id, e)}
-        placeholder={itemQ}
+        placeholder={itemQuantity}
       />
     </CartCard>
   );

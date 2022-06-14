@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import NavBar from '../Shop/Navbar/Navbar';
 import CheckoutCard from './CheckoutCard';
 import { useEffect, useState } from 'react';
 import { findTotalValue } from '../Helpers/TotalValue';
@@ -23,43 +22,37 @@ const CartItems = styled.div`
   padding: 25px;
 `;
 
-const Cart = ({ items, total, cart }) => {
-  const [quantities, setQuantities] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [totalPrice, setTotalPrice] = useState(0);
+const Cart = ({ items, setItems }) => {
   let content;
-
-  useEffect(() => {
-    setQuantities(items);
-    setTotalPrice(findTotalValue(items));
-    setIsLoaded(true);
-  }, [items, quantities]);
-
   const manageInput = (id, e) => {
-    let prevQuantities = [...quantities];
-    let newQuantities = prevQuantities.map(value => {
-      if (value.id === id) value.quantity = e.target.value;
+    let prevItems = [...items];
+    let newQuantity = prevItems.map(value => {
+      if (value.id === id) {
+        if (e.target.value > 100) e.target.value = 100;
+        if (e.target.value < 0) e.target.value = 0;
+        value.quantity = e.target.value;
+      }
       return value;
     });
-    setQuantities(newQuantities);
+    setItems(newQuantity);
   };
 
   const incrementQuantity = id => {
-    let prevQuantities = [...quantities];
-    let newQuantities = prevQuantities.map(value => {
+    let prevItems = [...items];
+    let newQuantities = prevItems.map(value => {
       if (value.id === id) value.quantity++;
       return value;
     });
-    setQuantities(newQuantities);
+    setItems(newQuantities);
   };
 
   const decrementQuantity = id => {
-    let prevQuantities = [...quantities];
-    let newQuantities = prevQuantities.map(value => {
-      if (value.id === id && value.quantity > 0) value.quantity--;
-      return value;
+    let prevItems = [...items];
+    let updateQuantity = prevItems.map(item => {
+      if (item.id === id && item.quantity > 0) item.quantity--;
+      return item;
     });
-    setQuantities(newQuantities);
+    setItems(updateQuantity);
   };
 
   const methods = {
@@ -70,24 +63,22 @@ const Cart = ({ items, total, cart }) => {
 
   const displayItems =
     items.length > 0
-      ? items.map((item, index) => (
+      ? items.map(item => (
           <CheckoutCard
             item={item}
-            key={index}
+            key={item.id}
             id={item.id}
-            index={index}
-            itemQ={isLoaded ? quantities[index].quantity : 0}
             methods={methods}
           />
         ))
       : null;
 
-  quantities.length === 0
+  items.length === 0
     ? (content = <p>Cart is empty</p>)
     : (content = (
         <StyledContainer>
           <CartItems>
-            {displayItems} <p>Total :{totalPrice}</p>
+            {displayItems} <p>Total :{findTotalValue(items)}</p>
           </CartItems>
         </StyledContainer>
       ));
