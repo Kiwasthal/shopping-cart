@@ -20,7 +20,7 @@ const StyledNavBar = styled.nav`
 
 const allLinks = styled(Link)`
   text-decoration: none;
-  font-size: 32px;
+  font-size: 24px;
   text-align: start;
   font-weight: 600;
   text-decoration: none;
@@ -113,11 +113,14 @@ const NavBar = ({ items, cartHandler }) => {
     if (items.length > 0) setCount(findCount(items));
   }, [items]);
 
-  if (navigation.pathname !== '/')
+  if (
+    navigation.pathname !== '/shopping-cart' &&
+    navigation.pathname !== '/shopping-cart/'
+  )
     return (
       <StyledNavBar>
         <LinkPara onClick={isShowing ? show : null}>
-          <HomeLink to="/">Home</HomeLink>
+          <HomeLink to="/shopping-cart">Home</HomeLink>
         </LinkPara>
         <LinkPara onClick={isShowing ? show : null}>
           <ShopLink to="shop">Shop</ShopLink>

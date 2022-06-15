@@ -1,6 +1,6 @@
 import './App.css';
 import UseBookData from './Components/Hooks/useFetchData';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Components/Home/Home';
 import Shop from './Components/Shop/Shop';
 import Cart from './Components/Cart/Cart';
@@ -39,10 +39,11 @@ function App() {
     <BrowserRouter>
       <NavBar cartHandler={cartHandler} items={shoppingCart} />
       <Routes>
+        <Route path="/" element={<Navigate to="/shopping-cart" />} />
         <Route
-          path="/"
+          path="/shopping-cart"
           element={<Home status={isLoading} books={fetchedBooks} />}
-        ></Route>
+        />
         <Route
           path="/shop"
           element={

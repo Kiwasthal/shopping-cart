@@ -33,7 +33,7 @@ const TextTop = styled.div`
 `;
 
 const Wrapper = styled.div`
-  font-size: 8vmin;
+  font-size: 6vmin;
   padding: 2vmin 0;
   position: absolute;
   animation: ${showTopText} 1s;

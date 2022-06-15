@@ -93,7 +93,7 @@ const StyledLink = styled(Link)`
   text-align: start;
   font-weight: 600;
   text-decoration: none;
-  font-size: 130px;
+  font-size: 100px;
   position: relative;
   transform: scale(1);
   transition: all 200ms ease-in;
@@ -135,10 +135,11 @@ const StyledImage = styled.div`
 `;
 
 const CastleImage = styled.img`
-  width: 700px;
+  padding-top: 200px;
+  align-self: center;
   justify-self: center;
   grid-area: 1 / 1 / 2 / 2;
-  height: auto;
+  height: 150%;
 `;
 
 const Home = ({ books, status }) => {
