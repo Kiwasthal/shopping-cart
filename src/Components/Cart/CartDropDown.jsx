@@ -6,7 +6,7 @@ import bookStack from '../../Assets/bookStack.svg';
 import { findTotalValue } from '../Helpers/TotalValue';
 
 const CartContainer = styled.div`
-  top: 55px;
+  top: 65px;
   left: -60px;
   grid-area: 1 / 3 / 2 / 4;
   margin: auto;

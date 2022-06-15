@@ -57,6 +57,7 @@ const CardDisplay = styled.div`
 `;
 
 const CardDisplayHeader = styled.h3`
+  font-family: 'Potta One', cursive;
   padding: 0;
   margin: 0;
   justify-self: center;

@@ -6,7 +6,7 @@ import Shop from './Components/Shop/Shop';
 import Cart from './Components/Cart/Cart';
 import DetailedItem from './Components/Shop/DetailedItemScreen/DetailedItem';
 import { useState } from 'react';
-import NavBar from './Components/Shop/Navbar/Navbar';
+import NavBar from './Components/Navbar/Navbar';
 
 function App() {
   const [isLoading, fetchedBooks] = UseBookData([]);

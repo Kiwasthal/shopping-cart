@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import CartDropDown from '../../Cart/CartDropDown';
-import cartIcon from '../../../Assets/cartIcon.svg';
+import CartDropDown from '../Cart/CartDropDown';
+import cartIcon from '../../Assets/cartIcon.svg';
 import { useEffect, useState } from 'react';
 
 const StyledNavBar = styled.nav`
@@ -20,7 +20,7 @@ const StyledNavBar = styled.nav`
 
 const allLinks = styled(Link)`
   text-decoration: none;
-  font-size: 26px;
+  font-size: 32px;
   text-align: start;
   font-weight: 600;
   text-decoration: none;
@@ -63,7 +63,7 @@ const CartContainer = styled.div`
   grid-area: 1 / 3 / 2 / 4;
   display: grid;
   margin-left: 315px;
-  margin-top: 20px;
+  margin-top: 10px;
   justify-content: center;
   position: relative;
 `;
@@ -78,7 +78,7 @@ const LinkPara = styled.p`
 
 const CountContainer = styled.div`
   position: absolute;
-  top: -10%;
+  top: 10%;
   left: 49%;
   border-radius: 50px;
   height: 30px;
@@ -93,6 +93,7 @@ const CountContainer = styled.div`
 const CartImg = styled.img`
   height: 50%;
   cursor: pointer;
+  align-self: center;
 `;
 
 const NavBar = ({ items, cartHandler }) => {
@@ -104,7 +105,8 @@ const NavBar = ({ items, cartHandler }) => {
   const findCount = values => {
     let count = 0;
     values.forEach(value => (count = count + value.quantity));
-    return count;
+    if (count >= 100) return '99+';
+    return parseInt(count, 10);
   };
 
   useEffect(() => {
