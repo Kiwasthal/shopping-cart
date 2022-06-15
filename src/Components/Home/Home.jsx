@@ -3,6 +3,7 @@ import LoadingAnimation from './LoadinAnimation/LoadingAnimation';
 import BookCard from './ManageBookCards/BookCards';
 import BackGroundImage from './BackgroundAnimated./BackgroundImage';
 import linkImage from '../../Assets/book.png';
+import castleImage from '../../Assets/castle.png';
 import { keyframes } from 'styled-components';
 import styled from 'styled-components';
 import { useState } from 'react';
@@ -41,8 +42,17 @@ const InformationModal = styled.div`
   grid-area: 2/ 1 / 3 /2;
   height: 50%;
   align-self: flex-end;
+  border-radius: 30px;
   margin-bottom: 40px;
   background-color: red;
+  background-image: linear-gradient(
+    to right bottom,
+    #d12823,
+    #d73329,
+    #dd3d30,
+    #e34636,
+    #e94f3d
+  );
 `;
 
 const CardDisplay = styled.div`
@@ -61,6 +71,7 @@ const CardDisplayHeader = styled.h3`
   padding: 0;
   margin: 0;
   justify-self: center;
+  font-size: 30px;
 `;
 
 const CardContainer = styled.div`
@@ -70,6 +81,7 @@ const CardContainer = styled.div`
 `;
 
 const StyledLinkContainer = styled.div`
+  grid-area: 1 / 1 / 2 / 2;
   justify-self: flex-end;
   display: flex;
   height: 50px;
@@ -81,7 +93,7 @@ const StyledLink = styled(Link)`
   text-align: start;
   font-weight: 600;
   text-decoration: none;
-  font-size: 30px;
+  font-size: 130px;
   position: relative;
   transform: scale(1);
   transition: all 200ms ease-in;
@@ -93,7 +105,7 @@ const StyledLink = styled(Link)`
     width: 100%;
     transform: scaleX(0);
     height: 2px;
-    bottom: 20%;
+    bottom: -100px;
     left: 0;
     background-color: #b63e47;
     transform-origin: bottom right;
@@ -122,6 +134,13 @@ const StyledImage = styled.div`
   }
 `;
 
+const CastleImage = styled.img`
+  width: 700px;
+  justify-self: center;
+  grid-area: 1 / 1 / 2 / 2;
+  height: auto;
+`;
+
 const Home = ({ books, status }) => {
   const [homeBooks, setHomeBooks] = useState(books);
   let content = <LoadingAnimation />;
@@ -133,8 +152,9 @@ const Home = ({ books, status }) => {
         <BackGroundImage />
         <MainDisplay>
           <AnimatedTitle />
+          <CastleImage src={castleImage} />
           <StyledLinkContainer>
-            <StyledLink to={'/shop'}>Shop</StyledLink>
+            <StyledLink to={'/shop'}> → Shop</StyledLink>
             <StyledImage />
           </StyledLinkContainer>
           <InformationModal />

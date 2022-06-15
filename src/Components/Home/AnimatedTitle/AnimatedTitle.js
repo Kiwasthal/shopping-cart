@@ -45,7 +45,7 @@ const Wrapper = styled.div`
 
 const AnimatedSpanFirst = styled.span`
   display: block;
-  color: #767676;
+  color: #f24f7d;
 `;
 
 const AnimatedSpanSecond = styled.span`
