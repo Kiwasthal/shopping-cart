@@ -71,13 +71,19 @@ const BottomTextDiv = styled.div`
   transform: translate(0, -100%);
 `;
 
+const FantasySpan = styled.span`
+  color: #b63e47;
+`;
+
 const AnimatedTitle = () => {
   return (
     <AnimatedContainer>
       <TextTop>
         <Wrapper>
           <AnimatedSpanFirst>Welcome</AnimatedSpanFirst>
-          <AnimatedSpanSecond>To The Fantasy</AnimatedSpanSecond>
+          <AnimatedSpanSecond>
+            To The <FantasySpan>Fantasy</FantasySpan>{' '}
+          </AnimatedSpanSecond>
         </Wrapper>
       </TextTop>
       <TextBottom>

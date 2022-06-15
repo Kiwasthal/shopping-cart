@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import CheckoutCard from './CheckoutCard';
 import { findTotalValue } from '../Helpers/TotalValue';
+import EmptyHolder from '../../Assets/empty.png';
 
 const StyledContainer = styled.div`
   background-color: #fff;
@@ -21,8 +22,50 @@ const CartItems = styled.div`
   padding: 25px;
 `;
 
+const FinalizeOrderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 10%;
+  gap: 0.5rem;
+`;
+
+const OrderTotalText = styled.p`
+  margin: 0;
+  padding: 0;
+  font-size: 900;
+  font-size: 32px;
+`;
+
+const OrderNowBtn = styled.button`
+  background-color: #c2410c;
+  color: #fff;
+  font-size: 22px;
+  padding: 10px;
+  font-weight: 900;
+  text-align: center;
+`;
+
+const EmptyCart = styled.div`
+  margin-top: 300px;
+  grid-area: 3 / 1 / 2 /2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+`;
+
+const HolderImg = styled.img`
+  height: 50%;
+`;
+
+const EmptyText = styled.p`
+  font-size: 100px;
+`;
+
 const Cart = ({ items, setItems }) => {
   let content;
+
   const manageInput = (id, e) => {
     let prevItems = [...items];
     let newQuantity = prevItems.map(value => {
@@ -47,11 +90,11 @@ const Cart = ({ items, setItems }) => {
 
   const decrementQuantity = id => {
     let prevItems = [...items];
-    let updateQuantity = prevItems.map(item => {
+    let updatedQuantity = prevItems.map(item => {
       if (item.id === id && item.quantity > 0) item.quantity--;
       return item;
     });
-    setItems(updateQuantity);
+    setItems(updatedQuantity);
   };
 
   const methods = {
@@ -68,11 +111,20 @@ const Cart = ({ items, setItems }) => {
       : null;
 
   items.length === 0
-    ? (content = <p>Cart is empty</p>)
+    ? (content = (
+        <EmptyCart>
+          <HolderImg src={EmptyHolder} />
+          <EmptyText>Your Cart is empty</EmptyText>
+        </EmptyCart>
+      ))
     : (content = (
         <StyledContainer>
           <CartItems>
-            {displayItems} <p>Total :{findTotalValue(items)}</p>
+            {displayItems}{' '}
+            <FinalizeOrderWrapper>
+              <OrderTotalText>Total :{findTotalValue(items)}</OrderTotalText>
+              <OrderNowBtn>PLACE ORDER</OrderNowBtn>
+            </FinalizeOrderWrapper>
           </CartItems>
         </StyledContainer>
       ));

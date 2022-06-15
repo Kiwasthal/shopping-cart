@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ClearFix from './Clearfix';
 import bookStack from '../../Assets/bookStack.svg';
 import { findTotalValue } from '../Helpers/TotalValue';
+import EmptyHolder from '../../Assets/empty.png';
 
 const CartContainer = styled.div`
   top: 65px;
