@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
 import { bookPrices } from '../Prices/Prices';
 
-const useBooks = (handler, value) => {
+const useBooks = (setter, value) => {
   useEffect(
     () =>
-      handler(
+      setter(
         value
           ? value.results.map((book, index) => {
               //Initialize default values in case of missing param
@@ -26,7 +26,7 @@ const useBooks = (handler, value) => {
             })
           : []
       ),
-    [value, handler]
+    [value, setter]
   );
 };
 

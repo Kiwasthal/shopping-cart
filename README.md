@@ -1,10 +1,26 @@
-# Getting Started with Create React App
+### Fantasy Bookstore
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+↳<a href='https://kiwasthal.github.io/shopping-cart/'>Deployed here with GitHub pages</a>
 
-## Available Scripts
+<img src='./src/Assets/home.png' alt='homeScreen' >
 
-In the project directory, you can run:
+<h3>Features</h3>
+<ul>
+  <li>React Routing</li>
+  <li>Custom hooks</li>
+  <li>Fetched data from <a href='https://gutendex.com/'>gutendex api</a></li>
+  <li>React testing library</li>
+  <li>Cool Animations</li>
+</ul>
+
+<img src='./Assets/shop.png' alt='ShopScreen'>
+
+# About
+
+When the app is launched a loading animation is displayed until the book data is fetched from gutendex api. Afterwards will be able to navigate to the shop view browsing and adding to his cart the various book elements, created by the fetched data. Each time his cart get's updated a dropdown displays his current 'cart' along with information regarding each book's price , title e.t.c along with a total price of items collected. Then the user is able to proceed to the checkout screen where he can make alterations to the quantities of each item selected from the shop screen.
+
+<img src='./Assets/detailed.png' alt='ShopScreen'>
+<img src='./Assets/cart.png' alt='ShopScreen'>
 
 ### `npm start`
 
@@ -28,43 +44,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -10,8 +10,9 @@ const getControlledPromise = () => {
 };
 
 describe('useFetchData', () => {
-  it('whatever', async () => {
+  it('fetches correctly from url', async () => {
     global.fetch = jest.fn();
+    //esLint formatting warning error! operation testing regardless of options
     await act(async () => renderHook(() => UseBookData()));
     expect(global.fetch).not.toBeCalledWith('empty check');
     expect(global.fetch).toBeCalledWith(

@@ -1,7 +1,7 @@
-export const findTotalValue = value =>
+export const findTotalValue = values =>
   (
     Math.round(
-      value.reduce(
+      values.reduce(
         (prevValue, nextValue) =>
           prevValue + nextValue.price * nextValue.quantity,
         0
