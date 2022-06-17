@@ -13,14 +13,14 @@
   <li>Cool Animations</li>
 </ul>
 
-<img src='./Assets/shop.png' alt='ShopScreen'>
+<img src='./src/Assets/shop.png' alt='ShopScreen'>
 
 # About
 
 When the app is launched a loading animation is displayed until the book data is fetched from gutendex api. Afterwards will be able to navigate to the shop view browsing and adding to his cart the various book elements, created by the fetched data. Each time his cart get's updated a dropdown displays his current 'cart' along with information regarding each book's price , title e.t.c along with a total price of items collected. Then the user is able to proceed to the checkout screen where he can make alterations to the quantities of each item selected from the shop screen.
 
-<img src='./Assets/detailed.png' alt='ShopScreen'>
-<img src='./Assets/cart.png' alt='ShopScreen'>
+<img src='./src/Assets/detailed.png' alt='Detailed book screen'>
+<img src='./src/Assets/cart.png' alt='CartScreen'>
 
 ### `npm start`
 
